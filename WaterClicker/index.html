@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Water Clickers</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="waterClick">
+    <h1>Bem-vindo ao WaterClicker!</h1>
+    <button id="reset" onclick="wipeSaveData()">RESET?</button>
+    <p id="auas">0.0 auas coletadas.</p>
+    <p id="auasPorSeg">0 auas por seg.</p>
+    <button id="aua" onclick="getAua()">aua</button>
+    <button id="moreAua" onclick="getMoreAua()"> melhorar torneira(1 aua por click) por 10 auas</button>
+  </div>
+
+  <div id="waterBuilds">
+    <h2>Construções!</h2>
+    <button id="sink" onclick="kitchenSink()">Pia por 10 auas</button>
+    <p id="pias">Você tem 0 pias</p>
+    <div id="waterBox">
+        <button id="waterBoxes" onclick="waterBoxGet()">Caixa d'Água por 100 auas</button>
+        <p id="caixaAgua">Você tem 0 caixas d'água</p>
+    </div>
+    <div id="river">
+        <button id="rivers" onclick="riverGet()">Água do rio por 1200 auas</button>
+        <p id="rios">Você tem 0 rios</p>
+    </div>
+    <div id="ocean">
+        <button id="oceanWater" onclick="oceanGet()">Água do mar tratada por 12000 auas</button>
+        <p id="aguaDoMar">Você tem 0 prédios de tratamento</p>
+    </div>
+    <div id="ice">
+        <button id="iceCaps" onclick="iceGet()">Extrator de água do gelo por 140000 auas</button>
+        <p id="geloGelo">Você tem 0 extratores de gelo</p>
+    </div>
+  </div>
+  <div id="waterUpg">
+    <h2>Upgrades!</h2>
+    <ul>
+      <li><button id="sinkUpg1" onclick="sinkUpg1()">Pias maiores - 100 aua</button></li>
+      <li><button id="sinkUpg2" onclick="sinkUpg2()">Pias Duplas - 500 aua</button></li>
+      <li><button id="boxUpg1" onclick="boxUpg1()">Caixas de 1000L - 1.000 aua</button></li>
+      <li><button id="boxUpg2" onclick="boxUpg2()">Sisternas de 2000L - 3.000 aua</button></li>
+      <li><button id="riverUpg1" onclick="riverUpg1()">Coletores de última geração - 5.000 aua</button></li>
+      <li><button id="riverUpg2" onclick="riverUpg2()">Aproveitamento de 200% - 12.000 aua</button></li>
+      <li><button id="oceanUpg1" onclick="oceanUpg1()">Dessanilizadores Rápidos - 50.000 aua</button></li>
+      <li><button id="oceanUpg2" onclick="oceanUpg2()">Equipamento Anti-sal - 100.000 aua</button></li>
+      <li><button id="iceUpg1" onclick="iceUpg1()">Brocas maiores - 500.000 aua</button></li>
+      <li><button id="iceUpg2" onclick="iceUpg2()">Cano de transporte direto - 1.000.000 aua</button></li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
