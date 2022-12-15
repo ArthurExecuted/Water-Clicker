@@ -4,13 +4,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Water Clickers</title>
+  <title>Water Clicker</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+  <header>
+    <button id="logOffBtn" onclick="logOff()">Log Off</button>
+    <div id="logBtnIn">
+    <button id="logIn" onclick="logIn()">Log In</button>
+    <button id="register" onclick="register()">Registrar</button>
+    </div>
+    <div id="logInForm">
+      <p id="error"></p>
+      <input type="text" id="username" placeholder="Nome de usuário"><br>
+      <input type="password" id="password" placeholder="Senha">
+      <input type="submit" onclick="logInVerify()">
+    </div>
+    <div id="registerForm">
+      <p id="error2"></p>
+      <input type="text" id="usernameSet" placeholder="Seu nome de usuário"><br>
+      <input type="password" id="passwordSet" placeholder="Sua senha">
+      <input type="submit" onclick="registerUser()">
+    </div>
+  </header>
+  <main>
   <div id="waterClick">
     <h1>Bem-vindo ao WaterClicker!</h1>
+    <h2 id="saveNow"></h2>
     <button id="reset" onclick="wipeSaveData()">RESET?</button>
     <p id="auas">0.0 auas coletadas.</p>
     <p id="auasPorSeg">0 auas por seg.</p>
@@ -56,6 +77,8 @@
   </div>
 
   <script src="script.js"></script>
+</main>
+<footer></footer>
 </body>
 
 </html>

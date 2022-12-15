@@ -304,6 +304,11 @@ var gameData = {
     }
   }
 
+  var userInfo = {
+    username: "default",
+    password: "",
+  };
+
   var gameDataSave = gameData;
   var gameDataSaveJson = JSON.stringify(gameDataSave)
 
@@ -312,11 +317,104 @@ var gameData = {
     return JSON.parse(keyValue)
   }
 
+  gameData = getSaveData(userInfo.username+'Save');
+
+  gameDataSave = gameData;
+  gameDataSaveJson = JSON.stringify(gameDataSave)
+  localStorage.setItem(userInfo.username+"Save", gameDataSaveJson)
+
   function wipeSaveData() {
     gameData = gameDataReset;
   }
 
-  gameData = getSaveData('save');
+  function logIn() {
+    var x = document.getElementById("logInForm")
+    if (x.style.display != "none"){
+      x.style.display = "none"
+    } else {
+      x.style.display = "block"
+    }
+  }
+
+  function register() {
+    var x = document.getElementById("registerForm")
+    if(x.style.display != "none"){
+      x.style.display = "none"
+    } else {
+      x.style.display = "block"
+    }
+  }
+
+  function logInVerify() {
+    var user = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    const getUserData = keyName => {
+      const keyValue = localStorage.getItem(keyName)
+      return JSON.parse(keyValue)
+    }
+
+    userInfoVerify = getUserData(user)
+
+    if(userInfoVerify.username == user && userInfoVerify.password == password) {
+      document.getElementById("saveNow").innerHTML = "Águaria de "+ user;
+      userInfo = userInfoVerify
+
+      gameData = getSaveData(userInfo.username+'Save');
+
+      var x = document.getElementById("logBtnIn");
+      x.style.display = "none";
+      var y = document.getElementById("logOffBtn");
+      y.style.display = "block";
+
+      logIn();
+
+      return gameData, userInfo;
+    } else {
+      document.getElementById("error").innerHTML = "Senha/nome errado";
+    }
+
+  }
+
+  function registerUser() {
+    var user = document.getElementById("usernameSet").value;
+    var password = document.getElementById("passwordSet").value;
+
+    const getUserData = keyName => {
+      const keyValue = localStorage.getItem(keyName)
+      return JSON.parse(keyValue)
+    }
+
+    userInfoVerify = getUserData(user)
+
+    if(userInfoVerify === null) {
+      userInfoStored = userInfo;
+        userInfoStored.password = password;
+        userInfoStored.username = user;
+
+        console.log(userInfoStored);
+        localStorage.setItem(user, JSON.stringify(userInfoStored))   
+    } else {
+      document.getElementById("error2").innerHTML = "Nome de usuário já existe"
+    }
+  }
+
+  function logOff() {
+      document.getElementById("saveNow").innerHTML = "";
+      userInfo = {
+        username: "default",
+        password: "",
+      };
+
+      gameData = getSaveData(userInfo.username+'Save');
+
+      var x = document.getElementById("logBtnIn");
+      x.style.display = "block";
+      var y = document.getElementById("logOffBtn");
+      y.style.display = "none";
+
+      return gameData, userInfo;
+  }
 
   for (i = 0; i < 11; i++) {
     switch (i) {
@@ -368,6 +466,8 @@ var gameData = {
     };
   }
 
+
+
   function gameLoop() {
     var auaDiffer = gameData.aua;
 
@@ -381,7 +481,7 @@ var gameData = {
 
     gameDataSave = gameData;
     gameDataSaveJson = JSON.stringify(gameDataSave)
-    localStorage.setItem('save', gameDataSaveJson)
+    localStorage.setItem(userInfo.username +"Save", gameDataSaveJson)
 
     document.getElementById("auas").innerHTML = gameData.aua.toFixed(0) + " auas coletadas";
     document.getElementById("auasPorSeg").innerHTML = auaDiffer.toFixed(1) +" auas por seg.";

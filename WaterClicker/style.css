@@ -3,3 +3,14 @@ html, body {
     width: 100%;
   }
 
+#logInForm {
+  display: none;
+}
+
+#registerForm {
+  display: none;
+}
+
+#logOffBtn {
+  display: none;
+}
