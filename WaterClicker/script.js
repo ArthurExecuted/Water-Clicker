@@ -370,6 +370,7 @@ var gameData = {
       y.style.display = "block";
 
       logIn();
+      verifyData();
 
       return gameData, userInfo;
     } else {
@@ -418,6 +419,7 @@ var gameData = {
       return gameData, userInfo;
   }
 
+async function verifyData(){
   for (i = 0; i < 11; i++) {
     switch (i) {
       case 1:
@@ -467,7 +469,9 @@ var gameData = {
         break;
     };
   }
+}
 
+verifyData()
 
 
   function gameLoop() {
