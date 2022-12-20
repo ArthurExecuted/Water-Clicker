@@ -317,11 +317,13 @@ var gameData = {
     return JSON.parse(keyValue)
   }
 
-  gameData = getSaveData(userInfo.username+'Save');
-
-  gameDataSave = gameData;
-  gameDataSaveJson = JSON.stringify(gameDataSave)
-  localStorage.setItem(userInfo.username+"Save", gameDataSaveJson)
+  if (getSaveData(userInfo.username+'Save') != null){
+    gameData = getSaveData(userInfo.username+'Save');
+  } else {
+    gameDataSave = gameData;
+    gameDataSaveJson = JSON.stringify(gameDataSave)
+    localStorage.setItem(userInfo.username+"Save", gameDataSaveJson)
+  }
 
   function wipeSaveData() {
     gameData = gameDataReset;
