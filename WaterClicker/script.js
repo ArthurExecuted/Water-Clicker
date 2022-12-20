@@ -411,6 +411,7 @@ var gameData = {
 
       gameData = getSaveData(userInfo.username+'Save');
 
+      verifyData();
       var x = document.getElementById("logBtnIn");
       x.style.display = "block";
       var y = document.getElementById("logOffBtn");
@@ -423,44 +424,44 @@ async function verifyData(){
   for (i = 0; i < 11; i++) {
     switch (i) {
       case 1:
-        if (gameData.sinkUpg1 == true){var x = document.getElementById("sinkUpg1"); x.style.display = "none"}
+        if (gameData.sinkUpg1 == true){var x = document.getElementById("sinkUpg1"); x.style.display = "none"} else {var x = document.getElementById("sinkUpg1"); x.style.display = "block"}
         document.getElementById("sink").innerHTML = "pia por " + gameData.piaCost + " auas";
         document.getElementById("pias").innerHTML = "Você tem " + gameData.pia + " pias";
         break;
       case 2:
-        if (gameData.sinkUpg2 == true){var x = document.getElementById("sinkUpg2"); x.style.display = "none"}
+        if (gameData.sinkUpg2 == true){var x = document.getElementById("sinkUpg2"); x.style.display = "none"} else {var x = document.getElementById("sinkUpg2"); x.style.display = "block"}
         break;
       case 3:
-        if (gameData.boxUpg1 == true){var x = document.getElementById("boxUpg1"); x.style.display = "none"}
+        if (gameData.boxUpg1 == true){var x = document.getElementById("boxUpg1"); x.style.display = "none"} else {var x = document.getElementById("boxUpg1"); x.style.display = "block"}
         document.getElementById("waterBoxes").innerHTML = "Caixa d'Água por "+ gameData.auaBoxCost + " auas";
         document.getElementById("caixaAgua").innerHTML = "Você tem "+ gameData.auaBox + " caixas d'água";
         break;
       case 4:
-        if (gameData.boxUpg2 == true){var x = document.getElementById("boxUpg2"); x.style.display = "none"}
+        if (gameData.boxUpg2 == true){var x = document.getElementById("boxUpg2"); x.style.display = "none"} else {var x = document.getElementById("boxUpg2"); x.style.display = "block"}
         break;
       case 5:
-        if (gameData.riverUpg1 == true){var x = document.getElementById("riverUpg1"); x.style.display = "none"}
+        if (gameData.riverUpg1 == true){var x = document.getElementById("riverUpg1"); x.style.display = "none"} else {var x = document.getElementById("riverUpg1"); x.style.display = "block"}
         document.getElementById("rivers").innerHTML = "Água do rio por "+ gameData.rioCost + " auas";
         document.getElementById("rios").innerHTML = "Você tem "+ gameData.rio + " rios";
         break;
       case 6:
-        if (gameData.riverUpg2 == true){var x = document.getElementById("riverUpg2"); x.style.display = "none"}
+        if (gameData.riverUpg2 == true){var x = document.getElementById("riverUpg2"); x.style.display = "none"} else {var x = document.getElementById("riverUpg2"); x.style.display = "block"}
         break;
       case 7:
-        if (gameData.oceanUpg1 == true){var x = document.getElementById("oceanUpg1"); x.style.display = "none"}
+        if (gameData.oceanUpg1 == true){var x = document.getElementById("oceanUpg1"); x.style.display = "none"} else {var x = document.getElementById("oceanUpg1"); x.style.display = "block"}
         document.getElementById("oceanWater").innerHTML = "Água do mar tratada por "+ gameData.oceanCost + " auas";
         document.getElementById("aguaDoMar").innerHTML = "Você tem "+ gameData.ocean + " prédios de tratamento";
         break;
       case 8:
-        if (gameData.oceanUpg2 == true){var x = document.getElementById("oceanUpg2"); x.style.display = "none"}
+        if (gameData.oceanUpg2 == true){var x = document.getElementById("oceanUpg2"); x.style.display = "none"} else {var x = document.getElementById("oceanUpg2"); x.style.display = "block"}
         break;
       case 9:
-        if (gameData.iceUpg1 == true){var x = document.getElementById("iceUpg1"); x.style.display = "none"}
+        if (gameData.iceUpg1 == true){var x = document.getElementById("iceUpg1"); x.style.display = "none"} else {var x = document.getElementById("iceUpg1"); x.style.display = "block"}
         document.getElementById("iceCaps").innerHTML = "Extrator de água do gelo por "+ gameData.iceCost + " auas";
         document.getElementById("geloGelo").innerHTML = "Você tem "+ gameData.ice + " extratores de gelo";
         break;
       case 10:
-        if (gameData.iceUpg2 == true){var x = document.getElementById("iceUpg2"); x.style.display = "none"}
+        if (gameData.iceUpg2 == true){var x = document.getElementById("iceUpg2"); x.style.display = "none"} else {var x = document.getElementById("iceUpg2"); x.style.display = "block"}
         if (gameData.auaPerClick < 20) {
           document.getElementById("moreAua").innerHTML = "melhorar torneira(" + gameData.auaPerClick + " aua por click) por " + gameData.auaPerClickCost + " auas";
         } else {
